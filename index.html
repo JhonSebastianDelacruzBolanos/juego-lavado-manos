@@ -2,37 +2,21 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>🧼 Juego de Lavado de Manos - OMS</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            -webkit-tap-highlight-color: transparent;
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-        }
         body {
             margin: 0;
             padding: 0;
             background: #4a6572;
             font-family: Arial, sans-serif;
             overflow: hidden;
-            touch-action: manipulation;
         }
         #game-container {
             width: 100vw;
             height: 100vh;
-            position: fixed;
-            top: 0;
-            left: 0;
         }
-        /* Loading screen mejorado para móviles */
+        /* Loading screen */
         #loading {
             position: fixed;
             top: 0;
@@ -46,25 +30,19 @@
             align-items: center;
             color: white;
             z-index: 1000;
-            font-size: clamp(14px, 4vw, 18px);
         }
         .spinner {
             border: 4px solid rgba(255, 255, 255, 0.3);
             border-radius: 50%;
             border-top: 4px solid #ffffff;
-            width: 50px;
-            height: 50px;
+            width: 40px;
+            height: 40px;
             animation: spin 1s linear infinite;
             margin-bottom: 20px;
         }
         @keyframes spin {
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
-        }
-        
-        /* Prevenir zoom en inputs */
-        input, textarea, select {
-            font-size: 16px;
         }
     </style>
     <script src="https://cdn.jsdelivr.net/npm/phaser@3.70.0/dist/phaser.min.js"></script>
@@ -81,17 +59,6 @@
             setTimeout(() => {
                 document.getElementById('loading').style.display = 'none';
             }, 2000);
-        });
-        
-        // Prevenir gestos de zoom
-        document.addEventListener('gesturestart', function(e) {
-            e.preventDefault();
-        });
-        document.addEventListener('gesturechange', function(e) {
-            e.preventDefault();
-        });
-        document.addEventListener('gestureend', function(e) {
-            e.preventDefault();
         });
     </script>
 </body>
